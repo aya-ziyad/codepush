@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Miniprojet" default="coverage-report" basedir=".">
+    <description>Builds, tests, and runs the project Miniprojet.</description>
+
+    <!-- Définition des propriétés de base -->
+    <property name="build.dir" value="build"/>
+    <property name="source.dir" value="src"/>
+    <property name="test.dir" value="test"/>
+    <property name="lib.dir" value="lib"/>
+
+    <!-- Définir la tâche JaCoCo -->
+  <taskdef name="jacoco"
+         classname="org.jacoco.ant.Task"
+         classpath="C:/Users/DELL/Documents/NetBeansProjects/Miniprojet/lib/jacoco-0.8.13/lib/jacocoant.jar;
+                    C:/Users/DELL/Documents/NetBeansProjects/Miniprojet/lib/jacoco-0.8.13/lib/jacococli.jar;
+                    C:/Users/DELL/Documents/NetBeansProjects/Miniprojet/lib/jacoco-0.8.13/lib/jacocoagent.jar"/>
+
+
+    <!-- Cible de compilation -->
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="${source.dir}" destdir="${build.dir}/classes">
+            <classpath>
+                <fileset dir="${lib.dir}" includes="**/*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <!-- Cible de test -->
+    <target name="test" depends="compile">
+        <mkdir dir="build/test-classes"/>
+        <junit>
+            <formatter type="xml"/>
+            <test todir="build/test-results">
+                <fileset dir="${test.dir}" includes="**/*Test.java"/>
+            </test>
+        </junit>
+    </target>
+
+    <!-- Cible pour générer le rapport de couverture JaCoCo -->
+    <target name="coverage-report" depends="test">
+        <jacoco>
+            <report>
+                <executiondata>
+                    <file file="${build.dir}/jacoco.exec"/>
+                </executiondata>
+                <structure>
+                    <classfiles>
+                        <fileset dir="${build.dir}/classes"/>
+                    </classfiles>
+                    <sourcefiles>
+                        <fileset dir="${source.dir}"/>
+                    </sourcefiles>
+                </structure>
+                <html destdir="${build.dir}/jacoco-report"/>
+            </report>
+        </jacoco>
+    </target>
+</project>

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.jacoco.ant
+Bnd-LastModified: 1649143235523
+Build-Jdk: 1.8.0_322
+Built-By: root
+Bundle-Description: JaCoCo Ant Tasks
+Bundle-License: https://www.eclipse.org/legal/epl-2.0/
+Bundle-ManifestVersion: 2
+Bundle-Name: JaCoCo Ant Tasks
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.jacoco.ant
+Bundle-Vendor: Mountainminds GmbH & Co. KG
+Bundle-Version: 0.8.8.202204050719
+Created-By: Apache Maven Bundle Plugin
+Eclipse-SourceReferences: scm:git:git://github.com/jacoco/jacoco.git;p
+ ath="org.jacoco.ant";commitId=5dcf34ad180c125ee3214437b0ca4f9b7b6258f
+ c
+Export-Package: org.jacoco.ant;version="0.8.8";uses:="org.jacoco.core.
+ analysis,org.jacoco.report,org.jacoco.report.check"
+Import-Package: org.jacoco.agent;version="[0.8.8,0.8.9)",org.jacoco.co
+ re.analysis;version="[0.8.8,0.8.9)",org.jacoco.core.data;version="[0.
+ 8.8,0.8.9)",org.jacoco.core.instr;version="[0.8.8,0.8.9)",org.jacoco.
+ core.runtime;version="[0.8.8,0.8.9)",org.jacoco.core.tools;version="[
+ 0.8.8,0.8.9)",org.jacoco.report;version="[0.8.8,0.8.9)",org.jacoco.re
+ port.check;version="[0.8.8,0.8.9)",org.jacoco.report.csv;version="[0.
+ 8.8,0.8.9)",org.jacoco.report.html;version="[0.8.8,0.8.9)",org.jacoco
+ .report.xml;version="[0.8.8,0.8.9)"
+Require-Bundle: org.apache.ant;bundle-version="[1.7.0,2.0.0)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-3.5.0.201709291849
